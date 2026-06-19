@@ -3,10 +3,16 @@ var position
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     btn.addEventListener("touchstart", function() {
-        position ? (position = 0) : (position = 150);
-        btn.style.transform = `translate(${position}px,0px)`;
-        btn.style.transition = "all 0.3s ease";
-      });
+
+    const larguraTela = window.innerWidth - 100;
+    const alturaTela = window.innerHeight - 50;
+
+    const x = Math.random() * larguraTela;
+    const y = Math.random() * alturaTela;
+
+    btn.style.position = "absolute";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px"; });
       
       btn.addEventListener("touchend", function() {
         position ? (position = 0) : (position = 150);
@@ -17,20 +23,31 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   
   else {
     btn.addEventListener("mouseover", function() {
-        position ? (position = 0) : (position = 150);
-        btn.style.transform = `translate(${position}px,0px)`;
-        btn.style.transition = "all 0.3s ease";
-        });
+
+    const larguraTela = window.innerWidth - 100;
+    const alturaTela = window.innerHeight - 50;
+
+    const x = Math.random() * larguraTela;
+    const y = Math.random() * alturaTela;
+
+    btn.style.position = "absolute";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";});
   }
 
-  function geraPosiçao (min, max) {
-    return (Math.random () * (max - min) + min) + "%";
+  btn.addEventListener("mouseover", function(){
+
+    btn.style.position = "absolute";
+
+    btn.style.left = geraPosiçao(5, 80);
+
+    btn.style.top = geraPosiçao(5, 80);
+
+});
+  function tanks() {
+
+    document.body.innerHTML = `
+        <h1>❤️ Eu sabia que você aceitaria! ❤️</h1>
+        <img src="./img/meme-fofo.gif">
+    `;
   }
-
-function tanks() {
-alert("Eu estou tão feliz! :)")
-}  
-
-function not() {
-alert(document.getElementsByClassName('no').style.translateX = ("150px"))
-}
